@@ -442,92 +442,55 @@ variable "esxi_hosts" {
 vsphere_vcenter = "10.0.0.10"
 vsphere_user = "administrator@vsphere.local"
 vsphere_password = "CHANGEME"
-
 vsphere_unverified_ssl = "true"
 
-  
-
 # VM specifications
-
 vsphere_datacenter = "DataCenter"
-
 vsphere_resource_pool = "k8s-cluster-RP"
-
 vsphere_vm_folder = "k8s-vms"
-
 vsphere_vm_template = "ubuntu16.04-template"
-
 vsphere_cluster = "k8s-Cluster"
-
 vsphere_datastore = "vsanDatastore"
-
 vsphere_port_group = "VM Network"
-
 vsphere_ipv4_address = "10.0.0."
-
 vsphere_ipv4_netmask = "24"
-
 vsphere_ipv4_gateway = "10.0.0.1"
-
 vsphere_dns_servers = ["114.114.114.114","223.5.5.5"]
 
-  
-
 vsphere_time_zone = "Asia/Shanghai"
-
-  
-
+ 
 k8s_deploy_name = "k8s-deploy"
-
 k8s_deploy_cpu = "2"
-
 k8s_deploy_memory = "4096"
-
 #k8s deploy node IP is $vsphere_ipv4_address.9
 
   
 
 k8s_master_name = "k8s-master0"
-
 k8s_master_cpu = "2"
-
 k8s_master_memory = "8196"
-
 k8s_master_count = "3"
-
 #k8s master node IP is starts with $vsphere_ipv4_address.21
-
 #Don't deploy master node count more than 10
 
   
 
 k8s_node_name = "k8s-node0"
-
 k8s_node_cpu = "8"
-
 k8s_node_memory = "16384"
-
 k8s_node_count = "5"
-
 #k8s master node IP is starts with $vsphere_ipv4_address.31
-
 #Don't deploy worker node count more than 10
 
   
   
 
 esxi_hosts = {
-
 "0" = "10.0.0.11"
-
 "1" = "10.0.0.12"
-
 "2" = "10.0.0.13"
-
 "3" = "10.0.0.14"
-
 "4" = "10.0.0.15"
-
 }
 
 ```
@@ -545,30 +508,20 @@ esxi_hosts = {
 1.4.2 创建VM Template，我们可以使用ubuntu16.04的ISO安装完毕之后，就可以直接关机并且转换为tempalte，并且名字设置为`ubuntu16.04-template`
 
 这步具体就不演示了，比较简单。
-
-  
+ 
   
 
 ### 1.5 Terraform GOGOGO
 
-  
-
 ```shell
-
 root@terraform:~/terraform/# terraform init
 
-  
 
 Initializing provider plugins...
-
 - Checking for available provider plugins on https://releases.hashicorp.com...
-
 - Downloading plugin for provider "vsphere" (1.4.1)...
 
-  
-
 The following providers do not have any version constraints in configuration,
-
 so the latest version was installed.
 
   
@@ -684,7 +637,7 @@ root@terraform:~/terraform/prod-k8sz1-tf#
 
 `terraform show`能够看到创建的所有资源的详细信息
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4NTM1Mzk0NywxMDcxNzUxNzE1LDIwMD
+eyJoaXN0b3J5IjpbLTk2MTE5OTk4MSwxMDcxNzUxNzE1LDIwMD
 E4Njk3MDAsODU4MDQ3NzIsLTE2NTgxMzI4NTYsMjA1MTI2NDY5
 NCwtMTg2ODc1MDY5NywtOTc0MTYzODU4XX0=
 -->
