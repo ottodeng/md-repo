@@ -514,8 +514,7 @@ esxi_hosts = {
 ### 1.5 Terraform GOGOGO
 
 ```shell
-root@terraform:~/terraform/# terraform init
-
+root@terraform:~/terraform# terraform init
 
 Initializing provider plugins...
 - Checking for available provider plugins on https://releases.hashicorp.com...
@@ -524,64 +523,35 @@ Initializing provider plugins...
 The following providers do not have any version constraints in configuration,
 so the latest version was installed.
 
-  
-
 To prevent automatic upgrades to new major versions that may contain breaking
-
 changes, it is recommended to add version = "..." constraints to the
-
 corresponding provider blocks in configuration, with the constraint strings
-
 suggested below.
-
-  
 
 * provider.vsphere: version = "~> 1.4"
 
-  
-
 Terraform has been successfully initialized!
 
-  
-
 You may now begin working with Terraform. Try running "terraform plan" to see
-
 any changes that are required for your infrastructure. All Terraform commands
-
 should now work.
 
-  
-
 If you ever set or change modules or backend configuration for Terraform,
-
 rerun this command to reinitialize your working directory. If you forget, other
-
 commands will detect it and remind you to do so if necessary.
-
-root@terraform:~/terraform/#
+root@terraform:~/terraform#
 
 ```
-
-  
+ 
 
 ```shell
-
-root@terraform:~/terraform/# terraform plan
-
-  
+root@terraform:~/terraform# terraform plan
 
 #如果没有配置错误，这里会出现每个创建的资源的详细配置项
-
-  
-
 ```
 
-  
-  
-
+    
 ```shell
-
-  
 
 root@terraform:~/terraform/prod-k8sz1-tf# terraform apply
 
@@ -637,7 +607,7 @@ root@terraform:~/terraform/prod-k8sz1-tf#
 
 `terraform show`能够看到创建的所有资源的详细信息
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2MTE5OTk4MSwxMDcxNzUxNzE1LDIwMD
-E4Njk3MDAsODU4MDQ3NzIsLTE2NTgxMzI4NTYsMjA1MTI2NDY5
-NCwtMTg2ODc1MDY5NywtOTc0MTYzODU4XX0=
+eyJoaXN0b3J5IjpbNzcxNDM0NjEyLDEwNzE3NTE3MTUsMjAwMT
+g2OTcwMCw4NTgwNDc3MiwtMTY1ODEzMjg1NiwyMDUxMjY0Njk0
+LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
 -->
