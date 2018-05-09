@@ -3,8 +3,8 @@
 具体环境如下：
 
 | HOST | IP | Remark | 
-|--|--|
-|  |  |
+|--|--|--|
+| k8s-deploy |  |  |
 
 
 ## 1. Terraform
@@ -39,6 +39,6 @@ cp terraform /usr/local/bin/
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwNTA3OTQ4LDIwNTEyNjQ2OTQsLTE4Nj
-g3NTA2OTcsLTk3NDE2Mzg1OF19
+eyJoaXN0b3J5IjpbLTY3MjIwNDA5MCwyMDUxMjY0Njk0LC0xOD
+Y4NzUwNjk3LC05NzQxNjM4NThdfQ==
 -->
