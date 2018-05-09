@@ -22,9 +22,9 @@
 | k8s-node05 | 10.0.0.35 | #Workder Node |
 
 
-| OS | VERSION | Kernel
-|--|--|
-|  |  |
+| OS | VERSION | Kernel |
+|--|--|--|
+| Ubuntu | 16.04  | 4.4.0-116 |
 
 
 ## 1. Terraform
@@ -37,7 +37,7 @@ Configuration files describe to Terraform the components needed to run a single 
 
 The infrastructure Terraform can manage includes low-level components such as compute instances, storage, and networking, as well as high-level components such as DNS entries, SaaS features, etc.
 
-说白了，就是“**Write, Plan, and create Infrastructure as Code**”
+说白了，就是==Write, Plan, and create Infrastructure as Code==
 
 ---
 
@@ -60,7 +60,7 @@ The infrastructure Terraform can manage includes low-level components such as co
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMDMyMDY5NCw4NTgwNDc3MiwtMTY1OD
-EzMjg1NiwyMDUxMjY0Njk0LC0xODY4NzUwNjk3LC05NzQxNjM4
-NThdfQ==
+eyJoaXN0b3J5IjpbMTQ3MzcwNjc2LDg1ODA0NzcyLC0xNjU4MT
+MyODU2LDIwNTEyNjQ2OTQsLTE4Njg3NTA2OTcsLTk3NDE2Mzg1
+OF19
 -->
