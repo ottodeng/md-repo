@@ -279,7 +279,6 @@ resource "vsphere_virtual_machine" "k8s-deploy" {
 }
 
 ```
-
   
 
 `variables.tf`
@@ -290,291 +289,147 @@ resource "vsphere_virtual_machine" "k8s-deploy" {
 
 # vCenter connection
 
-  
-
 variable "vsphere_user" {
-
-description = "vSphere user name"
-
+        description = "vSphere user name"
 }
-
-  
 
 variable "vsphere_password" {
-
-description = "vSphere password"
-
+        description = "vSphere password"
 }
-
-  
 
 variable "vsphere_vcenter" {
-
-description = "vCenter server FQDN or IP"
-
+        description = "vCenter server FQDN or IP"
 }
-
-  
 
 variable "vsphere_unverified_ssl" {
-
-description = "Is the vCenter using a self signed certificate (true/false)"
-
+        description = "Is the vCenter using a self signed certificate (true/false)"
 }
-
-  
 
 # VM specifications
 
-  
-
 variable "vsphere_datacenter" {
-
-description = "In which datacenter the VM will be deployed"
-
+        description = "In which datacenter the VM will be deployed"
 }
-
-  
 
 #variable "vsphere_vm_name" {
-
-# description = "What is the name of the VM"
-
+#        description = "What is the name of the VM"
 #}
 
-  
-
 variable "vsphere_vm_template" {
-
-description = "Where is the VM template located"
-
+        description = "Where is the VM template located"
 }
-
-  
 
 variable "vsphere_vm_folder" {
-
-description = "In which folder the VM will be store"
-
+        description = "In which folder the VM will be store"
 }
-
-  
 
 variable "vsphere_cluster" {
-
-description = "In which cluster the VM will be deployed"
-
+        description = "In which cluster the VM will be deployed"
 }
-
-  
 
 variable "vsphere_resource_pool" {
-
-description = "Resource Pool"
-
+        description = "Resource Pool"
 }
-
-  
 
 variable "vsphere_vcpu_number" {
-
-description = "How many vCPU will be assigned to the VM (default: 1)"
-
-default = "1"
-
+        description = "How many vCPU will be assigned to the VM (default: 1)"
+        default = "1"
 }
-
-  
 
 variable "vsphere_memory_size" {
-
-description = "How much RAM will be assigned to the VM (default: 1024)"
-
-default = "1024"
-
+        description = "How much RAM will be assigned to the VM (default: 1024)"
+        default = "1024"
 }
-
-  
 
 variable "vsphere_datastore" {
-
-description = "What is the name of the VM datastore"
-
+        description = "What is the name of the VM datastore"
 }
-
-  
 
 variable "vsphere_port_group" {
-
-description = "In which port group the VM NIC will be configured (default: VM Network)"
-
-default = "VM Network"
-
+        description = "In which port group the VM NIC will be configured (default: VM Network)"
+        default = "VM Network"
 }
-
-  
 
 variable "vsphere_ipv4_address" {
-
-description = "What is the IPv4 address of the VM"
-
+        description = "What is the IPv4 address of the VM"
 }
-
-  
 
 variable "vsphere_ipv4_netmask" {
-
-description = "What is the IPv4 netmask of the VM (default: 24)"
-
-default = "24"
-
+        description = "What is the IPv4 netmask of the VM (default: 24)"
+        default = "24"
 }
-
-  
 
 variable "vsphere_ipv4_gateway" {
-
-description = "What is the IPv4 gateway of the VM"
-
+        description = "What is the IPv4 gateway of the VM"
 }
-
-  
 
 variable "vsphere_dns_servers" {
-
-description = "DNS server list"
-
-type = "list"
-
+        description = "DNS server list"
+        type = "list"
 }
-
-  
 
 variable "virtual_machine_search_domain" {
-
-description = "DNS search domain list"
-
-type = "list"
-
+        description = "DNS search domain list"
+        type = "list"
 }
-
-  
 
 variable "vsphere_time_zone" {
-
-description = "What is the timezone of the VM (default: UTC)"
-
+        description = "What is the timezone of the VM (default: UTC)"
 }
-
-  
 
 variable "virtual_machine_domain" {
-
-description = "virtual machine domain"
-
-default = "homeoffice.cn.wal-mart.com"
-
+        description = "virtual machine domain"
+        default = "homeoffice.cn.wal-mart.com"
 }
-
-  
 
 variable "k8s_master_name" {
-
-description = "k8s master name"
-
+        description = "k8s master name"
 }
-
-  
 
 variable "k8s_master_cpu" {
-
-description = "k8s master cpu"
-
+        description = "k8s master cpu"
 }
-
-  
 
 variable "k8s_master_memory" {
-
-description = "k8s master memory"
-
+        description = "k8s master memory"
 }
-
-  
 
 variable "k8s_master_count" {
-
-description = "k8s master count"
-
+        description = "k8s master count"
 }
-
-  
-  
 
 variable "k8s_node_name" {
-
-description = "k8s node name"
-
+        description = "k8s node name"
 }
-
-  
 
 variable "k8s_node_cpu" {
-
-description = "k8s node cpu"
-
+        description = "k8s node cpu"
 }
-
-  
 
 variable "k8s_node_memory" {
-
-description = "k8s node memory"
-
+        description = "k8s node memory"
 }
-
-  
 
 variable "k8s_node_count" {
-
-description = "k8s node count"
-
+        description = "k8s node count"
 }
-
-  
 
 variable "k8s_deploy_name" {
-
-description = "k8s deployment node name"
-
+        description = "k8s deployment node name"
 }
-
-  
 
 variable "k8s_deploy_cpu" {
-
-description = "k8s deploy cpu"
-
+        description = "k8s deploy cpu"
 }
-
-  
 
 variable "k8s_deploy_memory" {
-
-description = "k8s deploy memory"
-
+        description = "k8s deploy memory"
 }
-
-  
 
 variable "esxi_hosts" {
-
-description = "ESXi HOSTs"
-
-type = "map"
-
+        description = "ESXi HOSTs"
+        type = "map"
 }
-
 ```
 
   
@@ -834,7 +689,7 @@ root@terraform:~/terraform/prod-k8sz1-tf#
 
 `terraform show`能够看到创建的所有资源的详细信息
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjY1MTQ2ODI1LDEwNzE3NTE3MTUsMjAwMT
-g2OTcwMCw4NTgwNDc3MiwtMTY1ODEzMjg1NiwyMDUxMjY0Njk0
-LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
+eyJoaXN0b3J5IjpbMTMwMzkxMDM5MSwxMDcxNzUxNzE1LDIwMD
+E4Njk3MDAsODU4MDQ3NzIsLTE2NTgxMzI4NTYsMjA1MTI2NDY5
+NCwtMTg2ODc1MDY5NywtOTc0MTYzODU4XX0=
 -->
