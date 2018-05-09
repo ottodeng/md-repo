@@ -20,13 +20,11 @@
 | k8s-node03 | 10.0.0.33 | #Workder Node |
 | k8s-node04 | 10.0.0.34 | #Workder Node |
 | k8s-node05 | 10.0.0.35 | #Workder Node |
-
-
+---
 | OS | VERSION | Kernel |
 |--|--|--|
 | Ubuntu | 16.04  | 4.4.0-116 |  
-
-
+---
 | Components | VERSION |
 |--|--|
 | Ubuntu | 16.04  |   
@@ -66,7 +64,7 @@ The infrastructure Terraform can manage includes low-level components such as co
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjY4ODU5MjAsODU4MDQ3NzIsLTE2NT
+eyJoaXN0b3J5IjpbLTE5NjA4NDY1MTYsODU4MDQ3NzIsLTE2NT
 gxMzI4NTYsMjA1MTI2NDY5NCwtMTg2ODc1MDY5NywtOTc0MTYz
 ODU4XX0=
 -->
