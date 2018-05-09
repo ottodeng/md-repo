@@ -1,6 +1,7 @@
 # Deploy Kubernetes with Terraform & Kubespray(ansible)
 
 
+
 ## 1. Terraform
 
 ### What is Terraform?
@@ -33,6 +34,6 @@ cp terraform /usr/local/bin/
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1MTI2NDY5NCwtMTg2ODc1MDY5NywtOT
-c0MTYzODU4XX0=
+eyJoaXN0b3J5IjpbMTUxMDc5NzU3NiwyMDUxMjY0Njk0LC0xOD
+Y4NzUwNjk3LC05NzQxNjM4NThdfQ==
 -->
