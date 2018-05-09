@@ -17,7 +17,7 @@ The infrastructure Terraform can manage includes low-level components such as co
 
 首先我们来安装Terraform
 
-1.1 Install GO 1.10
+### 1.1 Install GO 1.10
 
 wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz 
@@ -25,6 +25,8 @@ tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz
 export PATH=/usr/local/go/bin:$PATH
 export GOPATH=/root/go
 export GOROOT=/usr/local/go
+
+### 1.2
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2MTEzNzI2MCwtOTc0MTYzODU4XX0=
+eyJoaXN0b3J5IjpbLTE4Njg3NTA2OTcsLTk3NDE2Mzg1OF19
 -->
