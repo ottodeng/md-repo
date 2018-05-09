@@ -11,7 +11,8 @@
 | esxi-host05 | 10.0.0.15 | #ESXi host05 |
 | vCenter | 10.0.0.10 | #vCenter |
 
---
+  `here` 
+
 | k8s HOST | IP | Remark | 
 |--|--|--|
 | k8s-deploy | 10.0.0.9 | #Deploy Node |
@@ -57,6 +58,6 @@ cp terraform /usr/local/bin/
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjUzNjAzODEsLTE2NTgxMzI4NTYsMj
-A1MTI2NDY5NCwtMTg2ODc1MDY5NywtOTc0MTYzODU4XX0=
+eyJoaXN0b3J5IjpbLTE4NTQwNjQ5NSwtMTY1ODEzMjg1NiwyMD
+UxMjY0Njk0LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
 -->
