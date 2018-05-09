@@ -14,7 +14,17 @@ The infrastructure Terraform can manage includes low-level components such as co
 说白了，就是“**Write, Plan, and create Infrastructure as Code**”
 
 ---
-首先哦我
+
+首先我们来安装Terraform
+
+1.1 Install GO 1.10
+
+wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz 
+
+export PATH=/usr/local/go/bin:$PATH
+export GOPATH=/root/go
+export GOROOT=/usr/local/go
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyNTgzOTAyNywtOTc0MTYzODU4XX0=
+eyJoaXN0b3J5IjpbMTg2MTEzNzI2MCwtOTc0MTYzODU4XX0=
 -->
