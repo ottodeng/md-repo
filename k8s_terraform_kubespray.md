@@ -2,7 +2,7 @@
 
 具体环境如下：
 
-| HOST | IP | Remark | 
+| ESXi HOST | IP | Remark | 
 |--|--|--|
 | esxi-host01 | 10.0.0.11 | #ESXi host01 |
 | esxi-host02 | 10.0.0.12 | #ESXi host02 |
@@ -10,6 +10,10 @@
 | esxi-host04 | 10.0.0.14 | #ESXi host04 |
 | esxi-host05 | 10.0.0.15 | #ESXi host05 |
 | vCenter | 10.0.0.10 | #vCenter |
+
+--
+| k8s HOST | IP | Remark | 
+|--|--|--|
 | k8s-deploy | 10.0.0.9 | #Deploy Node |
 | k8s-master01 | 10.0.0.21 | #Master Node |
 | k8s-master02 | 10.0.0.22 | #Master Node |
@@ -17,8 +21,8 @@
 | k8s-node01 | 10.0.0.31 | #Workder Node |
 | k8s-node02 | 10.0.0.32 | #Workder Node |
 | k8s-node03 | 10.0.0.33 | #Workder Node |
-| k8s-node03 | 10.0.0.33 | #Workder Node |
-
+| k8s-node04 | 10.0.0.34 | #Workder Node |
+| k8s-node05 | 10.0.0.35 | #Workder Node |
 
 
 ## 1. Terraform
@@ -53,6 +57,6 @@ cp terraform /usr/local/bin/
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNTg5NzM3MSwtMTY1ODEzMjg1NiwyMD
-UxMjY0Njk0LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
+eyJoaXN0b3J5IjpbLTE4NjUzNjAzODEsLTE2NTgxMzI4NTYsMj
+A1MTI2NDY5NCwtMTg2ODc1MDY5NywtOTc0MTYzODU4XX0=
 -->
