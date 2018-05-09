@@ -26,7 +26,13 @@ export PATH=/usr/local/go/bin:$PATH
 export GOPATH=/root/go
 export GOROOT=/usr/local/go
 
-### 1.2
+### 1.2 Install Terraform 0.11.7
+wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
+unzip terraform_0.11.7_linux_amd64.zip 
+cp terraform /usr/local/bin/
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4Njg3NTA2OTcsLTk3NDE2Mzg1OF19
+eyJoaXN0b3J5IjpbMjA1MTI2NDY5NCwtMTg2ODc1MDY5NywtOT
+c0MTYzODU4XX0=
 -->
