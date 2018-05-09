@@ -22,6 +22,11 @@
 | k8s-node05 | 10.0.0.35 | #Workder Node |
 
 
+| OS | VERSION | Kernel
+|--|--|
+|  |  |
+
+
 ## 1. Terraform
 
 ### What is Terraform?
@@ -55,7 +60,7 @@ The infrastructure Terraform can manage includes low-level components such as co
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NTkzNzE2Myw4NTgwNDc3MiwtMTY1OD
+eyJoaXN0b3J5IjpbMTkwMDMyMDY5NCw4NTgwNDc3MiwtMTY1OD
 EzMjg1NiwyMDUxMjY0Njk0LC0xODY4NzUwNjk3LC05NzQxNjM4
 NThdfQ==
 -->
