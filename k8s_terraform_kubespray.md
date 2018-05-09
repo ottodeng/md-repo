@@ -10,6 +10,7 @@
 | esxi-host04 | 10.0.0.14 | #ESXi host04 |
 | esxi-host05 | 10.0.0.15 | #ESXi host05 |
 | vCenter | 10.0.0.10 | #vCenter |
+| Terraform | 10.0.0.5 | #Terraform Node |
 | k8s-deploy | 10.0.0.9 | #Deploy Node |
 | k8s-master01 | 10.0.0.21 | #Master Node |
 | k8s-master02 | 10.0.0.22 | #Master Node |
@@ -54,6 +55,7 @@ The infrastructure Terraform can manage includes low-level components such as co
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU4MDQ3NzIsLTE2NTgxMzI4NTYsMjA1MT
-I2NDY5NCwtMTg2ODc1MDY5NywtOTc0MTYzODU4XX0=
+eyJoaXN0b3J5IjpbMTA3NTkzNzE2Myw4NTgwNDc3MiwtMTY1OD
+EzMjg1NiwyMDUxMjY0Njk0LC0xODY4NzUwNjk3LC05NzQxNjM4
+NThdfQ==
 -->
