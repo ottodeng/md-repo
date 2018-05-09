@@ -4,7 +4,8 @@
 
 | HOST | IP | Remark | 
 |--|--|--|
-| k8s-deploy |  |  |
+| k8sz1-deploy | 10.233.74.9 | #Deploy Node |
+| k8sz1-master01 | 10.233.74.21 | #Deploy Node |
 
 
 ## 1. Terraform
@@ -39,6 +40,6 @@ cp terraform /usr/local/bin/
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3MjIwNDA5MCwyMDUxMjY0Njk0LC0xOD
-Y4NzUwNjk3LC05NzQxNjM4NThdfQ==
+eyJoaXN0b3J5IjpbLTE2NTgxMzI4NTYsMjA1MTI2NDY5NCwtMT
+g2ODc1MDY5NywtOTc0MTYzODU4XX0=
 -->
