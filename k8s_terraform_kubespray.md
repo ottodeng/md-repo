@@ -2,13 +2,16 @@
 
 
 ## 1. Terraform
-## What is Terraform?
+
+### What is Terraform?
 
 Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
 
 Configuration files describe to Terraform the components needed to run a single application or your entire datacenter. Terraform generates an execution plan describing what it will do to reach the desired state, and then executes it to build the described infrastructure. As the configuration changes, Terraform is able to determine what changed and create incremental execution plans which can be applied.
 
 The infrastructure Terraform can manage includes low-level components such as compute instances, storage, and networking, as well as high-level components such as DNS entries, SaaS features, etc.
+
+说白了，就是“Write, Plan, and create Infrastructure as Code”
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA5OTA4NDMxLC05NzQxNjM4NThdfQ==
+eyJoaXN0b3J5IjpbLTkzMjEzMzc0NSwtOTc0MTYzODU4XX0=
 -->
