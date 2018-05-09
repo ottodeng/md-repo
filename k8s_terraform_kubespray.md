@@ -63,83 +63,44 @@ The infrastructure Terraform can manage includes low-level components such as co
 ### 1.1 Install GO 1.10
 
 ```bash
-
 wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
-
 tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz
-
 export PATH=/usr/local/go/bin:$PATH
-
 export GOPATH=/root/go
-
 export GOROOT=/usr/local/go
-
 ```
-
-  
 
 ### 1.2 Install Terraform 0.11.7
-
-  
-
 ```bash
-
 wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
-
 unzip terraform_0.11.7_linux_amd64.zip
-
 cp terraform /usr/local/bin/
-
 ```
 
-  
 
 ### 1.3 Terraform 文件
 
 为了逻辑清晰，我将所有配置分成4个文件
 
-  
-
 ```bash
-
 root@terraform:~/terraform/lab-k8sz1-tf# ls
-
 data_sources.tf k8s.tf terraform.tfvars variables.tf
-
 ```
 
-  
-
 `data_sources.tf`
-
 存放vsphere已有的资源变量
-
-  
-
 ```tcl
-
 data "vsphere_datacenter" "datacenter" {
-
 name = "${var.vsphere_datacenter}"
-
 }
-
-  
 
 data "vsphere_host" "hosts" {
-
 count = "${length(var.esxi_hosts)}"
-
 name = "${var.esxi_hosts[count.index]}"
-
 datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
-
 }
 
-  
-
 data "vsphere_resource_pool" "resource_pool" {
-
 name = "${var.vsphere_resource_pool}"
 
 datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
@@ -1041,7 +1002,7 @@ root@terraform:~/terraform/prod-k8sz1-tf#
 
 `terraform show`能够看到创建的所有资源的详细信息
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTM5NDM1MSwxMDcxNzUxNzE1LDIwMD
-E4Njk3MDAsODU4MDQ3NzIsLTE2NTgxMzI4NTYsMjA1MTI2NDY5
-NCwtMTg2ODc1MDY5NywtOTc0MTYzODU4XX0=
+eyJoaXN0b3J5IjpbNjk2MjEzMzk5LDEwNzE3NTE3MTUsMjAwMT
+g2OTcwMCw4NTgwNDc3MiwtMTY1ODEzMjg1NiwyMDUxMjY0Njk0
+LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
 -->
