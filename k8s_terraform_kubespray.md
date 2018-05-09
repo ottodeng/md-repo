@@ -8,9 +8,7 @@
   
 
 | ESXi HOST | IP | Remark |
-
-|--|--|--|
-
+| -- | -- |--|
 | esxi-host01 | 10.0.0.11 | #ESXi host01 |
 
 | esxi-host02 | 10.0.0.12 | #ESXi host02 |
@@ -1080,7 +1078,7 @@ root@terraform:~/terraform/prod-k8sz1-tf#
 
 `terraform show`能够看到创建的所有资源的详细信息
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3MTc1MTcxNSwyMDAxODY5NzAwLDg1OD
-A0NzcyLC0xNjU4MTMyODU2LDIwNTEyNjQ2OTQsLTE4Njg3NTA2
-OTcsLTk3NDE2Mzg1OF19
+eyJoaXN0b3J5IjpbLTE5MzMwNjczMjEsMTA3MTc1MTcxNSwyMD
+AxODY5NzAwLDg1ODA0NzcyLC0xNjU4MTMyODU2LDIwNTEyNjQ2
+OTQsLTE4Njg3NTA2OTcsLTk3NDE2Mzg1OF19
 -->
