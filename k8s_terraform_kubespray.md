@@ -379,7 +379,6 @@ variable "vsphere_time_zone" {
 
 variable "virtual_machine_domain" {
         description = "virtual machine domain"
-        default = "homeoffice.cn.wal-mart.com"
 }
 
 variable "k8s_master_name" {
@@ -439,13 +438,9 @@ variable "esxi_hosts" {
 用来存放所有变量的实例，基本上我们只需要修改这个文件中的内容
 
 ```tcl
-
 # vCenter connection
-
 vsphere_vcenter = "10.0.0.10"
-
 vsphere_user = "administrator@vsphere.local"
-
 vsphere_password = "CHANGEME"
 
 vsphere_unverified_ssl = "true"
@@ -689,7 +684,7 @@ root@terraform:~/terraform/prod-k8sz1-tf#
 
 `terraform show`能够看到创建的所有资源的详细信息
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwMzkxMDM5MSwxMDcxNzUxNzE1LDIwMD
+eyJoaXN0b3J5IjpbMTg4NTM1Mzk0NywxMDcxNzUxNzE1LDIwMD
 E4Njk3MDAsODU4MDQ3NzIsLTE2NTgxMzI4NTYsMjA1MTI2NDY5
 NCwtMTg2ODc1MDY5NywtOTc0MTYzODU4XX0=
 -->
