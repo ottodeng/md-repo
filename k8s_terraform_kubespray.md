@@ -1,5 +1,10 @@
 # Deploy Kubernetes with Terraform & Kubespray(ansible)
 
+具体环境如下：
+
+| HOST | IP | Remark | 
+|--|--|
+|  |  |
 
 
 ## 1. Terraform
@@ -34,6 +39,6 @@ cp terraform /usr/local/bin/
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxMDc5NzU3NiwyMDUxMjY0Njk0LC0xOD
-Y4NzUwNjk3LC05NzQxNjM4NThdfQ==
+eyJoaXN0b3J5IjpbLTQwNTA3OTQ4LDIwNTEyNjQ2OTQsLTE4Nj
+g3NTA2OTcsLTk3NDE2Mzg1OF19
 -->
