@@ -1,7 +1,8 @@
-Deploy Kubernetes with Terraform & Kubespray(ansible)
+# Deploy Kubernetes with Terraform & Kubespray(ansible)
 
 
+## 1 Install Terraform
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3NDE2Mzg1OF19
+eyJoaXN0b3J5IjpbMTQ0Nzg5MjYzMywtOTc0MTYzODU4XX0=
 -->
