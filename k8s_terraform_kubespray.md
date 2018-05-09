@@ -4,8 +4,13 @@
 
 | HOST | IP | Remark | 
 |--|--|--|
+| esxi-host01 | 10.0.0.11 | #ESXi host01 |
+| esxi-host02 | 10.0.0.12 | #ESXi host01 |
+| esxi-host03 | 10.0.0.13 | #ESXi host01 |
+| esxi-host04 | 10.0.0.14 | #ESXi host01 |
+| esxi-host05 | 10.0.0.15 | #ESXi host01 |
 | k8s-deploy | 10.0.0.9 | #Deploy Node |
-| k8s-master01 | 10.233.74.21 | #Deploy Node |
+| k8s-master01 | 10.0.0.21 | #Deploy Node |
 
 
 ## 1. Terraform
@@ -40,6 +45,6 @@ cp terraform /usr/local/bin/
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjA1MjU3NywtMTY1ODEzMjg1NiwyMD
-UxMjY0Njk0LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
+eyJoaXN0b3J5IjpbODExMTY2MzU3LC0xNjU4MTMyODU2LDIwNT
+EyNjQ2OTQsLTE4Njg3NTA2OTcsLTk3NDE2Mzg1OF19
 -->
