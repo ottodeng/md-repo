@@ -24,11 +24,13 @@
 
 | OS | VERSION | Kernel |
 |--|--|--|
-| Ubuntu | 16.04  | 4.4.0-116 |
+| Ubuntu | 16.04  | 4.4.0-116 |  
+
 
 | Components | VERSION |
 |--|--|
-| Ubuntu | 16.04  | 
+| Ubuntu | 16.04  |   
+
 
 ## 1. Terraform
 
@@ -64,7 +66,7 @@ The infrastructure Terraform can manage includes low-level components such as co
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc1NDIxMDg4LDg1ODA0NzcyLC0xNjU4MT
-MyODU2LDIwNTEyNjQ2OTQsLTE4Njg3NTA2OTcsLTk3NDE2Mzg1
-OF19
+eyJoaXN0b3J5IjpbLTE2NjY4ODU5MjAsODU4MDQ3NzIsLTE2NT
+gxMzI4NTYsMjA1MTI2NDY5NCwtMTg2ODc1MDY5NywtOTc0MTYz
+ODU4XX0=
 -->
