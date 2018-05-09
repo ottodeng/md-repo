@@ -553,61 +553,38 @@ root@terraform:~/terraform# terraform plan
     
 ```shell
 
-root@terraform:~/terraform/prod-k8sz1-tf# terraform apply
-
+root@terraform:~/terraform# terraform apply
+ 
 vsphere_virtual_machine.k8s-masters.1: Still creating... (1m20s elapsed)
-
 vsphere_virtual_machine.k8s-nodes.4: Still creating... (1m20s elapsed)
-
 vsphere_virtual_machine.k8s-deploy: Creation complete after 1m29s (ID: 42187d77-86a2-ef21-f7aa-b443576029ae)
-
 vsphere_virtual_machine.k8s-masters[2]: Creation complete after 1m29s (ID: 4218bd31-cbb1-b181-2699-6af3f00563b5)
-
 vsphere_virtual_machine.k8s-masters.0: Still creating... (1m30s elapsed)
-
 vsphere_virtual_machine.k8s-nodes.2: Still creating... (1m30s elapsed)
-
 vsphere_virtual_machine.k8s-nodes.1: Still creating... (1m30s elapsed)
-
 vsphere_virtual_machine.k8s-nodes.0: Still creating... (1m30s elapsed)
-
 vsphere_virtual_machine.k8s-nodes.3: Still creating... (1m30s elapsed)
-
 vsphere_virtual_machine.k8s-masters.1: Still creating... (1m30s elapsed)
-
 vsphere_virtual_machine.k8s-nodes.4: Still creating... (1m30s elapsed)
-
 vsphere_virtual_machine.k8s-nodes[4]: Creation complete after 1m34s (ID: 4218e1b4-ea21-ca96-1e78-6d6c30b655e9)
-
 vsphere_virtual_machine.k8s-nodes[0]: Creation complete after 1m35s (ID: 42182c7f-cffe-4109-33e9-0df8cc113261)
-
 vsphere_virtual_machine.k8s-masters[0]: Creation complete after 1m36s (ID: 4218dbe8-a641-7db6-982a-5b215cd0571f)
-
 vsphere_virtual_machine.k8s-masters[1]: Creation complete after 1m37s (ID: 42185559-a55f-7aab-37c3-6706494c061d)
-
 vsphere_virtual_machine.k8s-nodes[1]: Creation complete after 1m37s (ID: 42184531-0cbc-6ed5-e025-98b9ca6dc312)
-
 vsphere_virtual_machine.k8s-nodes[3]: Creation complete after 1m39s (ID: 4218ed5b-f131-d96e-24a7-4d9b0e5b9c89)
-
 vsphere_virtual_machine.k8s-nodes[2]: Creation complete after 1m39s (ID: 421855f2-6d31-1b7f-18d1-5870a0548bac)
 
-  
-
 Apply complete! Resources: 10 added, 0 changed, 0 destroyed.
-
-root@terraform:~/terraform/prod-k8sz1-tf#
+root@terraform:~/terraform#
 
 ```
-
-  
+ 
 
 执行完毕之后，就能看到vCenter里面已经创建好所有的k8s集群的主机
 
-  
-
 `terraform show`能够看到创建的所有资源的详细信息
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzcxNDM0NjEyLDEwNzE3NTE3MTUsMjAwMT
+eyJoaXN0b3J5IjpbMjI3NTIxNTMyLDEwNzE3NTE3MTUsMjAwMT
 g2OTcwMCw4NTgwNDc3MiwtMTY1ODEzMjg1NiwyMDUxMjY0Njk0
 LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
 -->
