@@ -9,10 +9,15 @@
 | esxi-host03 | 10.0.0.13 | #ESXi host03 |
 | esxi-host04 | 10.0.0.14 | #ESXi host04 |
 | esxi-host05 | 10.0.0.15 | #ESXi host05 |
+| vCenter | 10.0.0.10 | #vCenter |
 | k8s-deploy | 10.0.0.9 | #Deploy Node |
 | k8s-master01 | 10.0.0.21 | #Master Node |
 | k8s-master02 | 10.0.0.22 | #Master Node |
 | k8s-master03 | 10.0.0.23 | #Master Node |
+| k8s-node01 | 10.0.0.31 | #Workder Node |
+| k8s-node02 | 10.0.0.32 | #Workder Node |
+| k8s-node03 | 10.0.0.33 | #Workder Node |
+| k8s-node03 | 10.0.0.33 | #Workder Node |
 
 
 
@@ -48,6 +53,6 @@ cp terraform /usr/local/bin/
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwMTQ0NDMyMCwtMTY1ODEzMjg1NiwyMD
+eyJoaXN0b3J5IjpbLTkxNTg5NzM3MSwtMTY1ODEzMjg1NiwyMD
 UxMjY0Njk0LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
 -->
