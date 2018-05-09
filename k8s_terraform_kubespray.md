@@ -91,51 +91,33 @@ data_sources.tf k8s.tf terraform.tfvars variables.tf
 存放vsphere已有的资源变量
 ```tcl
 data "vsphere_datacenter" "datacenter" {
-name = "${var.vsphere_datacenter}"
+  name = "${var.vsphere_datacenter}"
 }
 
 data "vsphere_host" "hosts" {
-count = "${length(var.esxi_hosts)}"
-name = "${var.esxi_hosts[count.index]}"
-datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
+  count         = "${length(var.esxi_hosts)}"
+  name          = "${var.esxi_hosts[count.index]}"
+  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
 
 data "vsphere_resource_pool" "resource_pool" {
-name = "${var.vsphere_resource_pool}"
-
-datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
-
+  name          = "${var.vsphere_resource_pool}"
+  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
-
-  
 
 data "vsphere_virtual_machine" "template" {
-
-name = "${var.vsphere_vm_template}"
-
-datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
-
+  name          = "${var.vsphere_vm_template}"
+  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
-
-  
 
 data "vsphere_datastore" "datastore" {
-
-name = "${var.vsphere_datastore}"
-
-datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
-
+  name          = "${var.vsphere_datastore}"
+  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
 
-  
-  
-
 data "vsphere_network" "network" {
-
-name = "${var.vsphere_port_group}"
-
-datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
-
+  name          = "${var.vsphere_port_group}"
+  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
 
 ```
@@ -149,301 +131,151 @@ datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 ```tcl
 
 # Configure vSphere provider
-
 provider "vsphere" {
-
-vsphere_server = "${var.vsphere_vcenter}"
-
-user = "${var.vsphere_user}"
-
-password = "${var.vsphere_password}"
-
-allow_unverified_ssl = "${var.vsphere_unverified_ssl}"
-
+        vsphere_server = "${var.vsphere_vcenter}"
+        user = "${var.vsphere_user}"
+        password = "${var.vsphere_password}"
+        allow_unverified_ssl = "${var.vsphere_unverified_ssl}"
 }
-
-  
 
 # Create a vSphere VM folder
-
 resource "vsphere_folder" "vm_folder" {
-
-datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
-
-type = "vm"
-
-path = "${var.vsphere_vm_folder}"
-
+        datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
+        type = "vm"
+        path = "${var.vsphere_vm_folder}"
 }
-
-  
-  
 
 # Create a vSphere VM in the k8s-vms folder
-
 resource "vsphere_virtual_machine" "k8s-masters" {
+  count            = "${var.k8s_master_count}"
+  name             = "${var.k8s_master_name}${count.index + 1}"
+  resource_pool_id = "${data.vsphere_resource_pool.resource_pool.id}"
+  datastore_id     = "${data.vsphere_datastore.datastore.id}"
+  host_system_id = "${data.vsphere_host.hosts.*.id[count.index]}"
+  folder = "${vsphere_folder.vm_folder.path}"
 
-count = "${var.k8s_master_count}"
+  num_cpus = "${var.k8s_master_cpu}"
+  memory   = "${var.k8s_master_memory}"
+  guest_id = "${data.vsphere_virtual_machine.template.guest_id}"
+  enable_disk_uuid = "true"
 
-name = "${var.k8s_master_name}${count.index + 1}"
+  network_interface {
+    network_id   = "${data.vsphere_network.network.id}"
+  }
 
-resource_pool_id = "${data.vsphere_resource_pool.resource_pool.id}"
+  disk {
+    label = "disk0" 
+    size = "${data.vsphere_virtual_machine.template.disks.0.size}"
+  }
 
-datastore_id = "${data.vsphere_datastore.datastore.id}"
+  clone {
+    template_uuid = "${data.vsphere_virtual_machine.template.id}"
 
-host_system_id = "${data.vsphere_host.hosts.*.id[count.index]}"
+    customize {
+      linux_options {
+        host_name = "${var.k8s_master_name}${count.index + 1}"
+        domain    = "${var.virtual_machine_domain}"
+        time_zone = "${var.vsphere_time_zone}"
+      }
 
-folder = "${vsphere_folder.vm_folder.path}"
+      network_interface {
+        ipv4_address = "${var.vsphere_ipv4_address}${21 + count.index}"
+        ipv4_netmask = "${var.vsphere_ipv4_netmask}"
+      }
 
-  
-
-num_cpus = "${var.k8s_master_cpu}"
-
-memory = "${var.k8s_master_memory}"
-
-guest_id = "${data.vsphere_virtual_machine.template.guest_id}"
-
-enable_disk_uuid = "true"
-
-  
-  
-
-network_interface {
-
-network_id = "${data.vsphere_network.network.id}"
-
+      ipv4_gateway    = "${var.vsphere_ipv4_gateway}"
+      dns_suffix_list = "${var.virtual_machine_search_domain}"
+      dns_server_list = "${var.vsphere_dns_servers}"
+    }
+  }
 }
-
-  
-
-disk {
-
-label = "disk0"
-
-size = "${data.vsphere_virtual_machine.template.disks.0.size}"
-
-}
-
-  
-
-clone {
-
-template_uuid = "${data.vsphere_virtual_machine.template.id}"
-
-  
-
-customize {
-
-linux_options {
-
-host_name = "${var.k8s_master_name}${count.index + 1}"
-
-domain = "${var.virtual_machine_domain}"
-
-time_zone = "${var.vsphere_time_zone}"
-
-}
-
-  
-
-network_interface {
-
-ipv4_address = "${var.vsphere_ipv4_address}${21 + count.index}"
-
-ipv4_netmask = "${var.vsphere_ipv4_netmask}"
-
-}
-
-  
-
-ipv4_gateway = "${var.vsphere_ipv4_gateway}"
-
-dns_suffix_list = "${var.virtual_machine_search_domain}"
-
-dns_server_list = "${var.vsphere_dns_servers}"
-
-}
-
-}
-
-}
-
-  
 
 resource "vsphere_virtual_machine" "k8s-nodes" {
+  count            = "${var.k8s_node_count}"
+  name             = "${var.k8s_node_name}${count.index + 1}"
+  resource_pool_id = "${data.vsphere_resource_pool.resource_pool.id}"
+  datastore_id     = "${data.vsphere_datastore.datastore.id}"
+  host_system_id = "${data.vsphere_host.hosts.*.id[count.index]}"
+  folder = "${vsphere_folder.vm_folder.path}"
 
-count = "${var.k8s_node_count}"
+  num_cpus = "${var.k8s_node_cpu}"
+  memory   = "${var.k8s_node_memory}"
+  guest_id = "${data.vsphere_virtual_machine.template.guest_id}"
+  enable_disk_uuid = "true"
 
-name = "${var.k8s_node_name}${count.index + 1}"
+  network_interface {
+    network_id   = "${data.vsphere_network.network.id}"
+  }
 
-resource_pool_id = "${data.vsphere_resource_pool.resource_pool.id}"
+  disk {
+    label = "disk0" 
+    size = "${data.vsphere_virtual_machine.template.disks.0.size}"
+  }
 
-datastore_id = "${data.vsphere_datastore.datastore.id}"
+  clone {
+    template_uuid = "${data.vsphere_virtual_machine.template.id}"
 
-host_system_id = "${data.vsphere_host.hosts.*.id[count.index]}"
+    customize {
+      linux_options {
+        host_name = "${var.k8s_node_name}${count.index + 1}"
+        domain    = "${var.virtual_machine_domain}"
+        time_zone = "${var.vsphere_time_zone}"
+      }
 
-folder = "${vsphere_folder.vm_folder.path}"
+      network_interface {
+        ipv4_address = "${var.vsphere_ipv4_address}${31 + count.index}"
+        ipv4_netmask = "${var.vsphere_ipv4_netmask}"
+      }
 
-  
-
-num_cpus = "${var.k8s_node_cpu}"
-
-memory = "${var.k8s_node_memory}"
-
-guest_id = "${data.vsphere_virtual_machine.template.guest_id}"
-
-enable_disk_uuid = "true"
-
-  
-  
-
-network_interface {
-
-network_id = "${data.vsphere_network.network.id}"
-
+      ipv4_gateway    = "${var.vsphere_ipv4_gateway}"
+      dns_suffix_list = "${var.virtual_machine_search_domain}"
+      dns_server_list = "${var.vsphere_dns_servers}"
+    }
+  }
 }
-
-  
-
-disk {
-
-label = "disk0"
-
-size = "${data.vsphere_virtual_machine.template.disks.0.size}"
-
-}
-
-  
-
-clone {
-
-template_uuid = "${data.vsphere_virtual_machine.template.id}"
-
-  
-
-customize {
-
-linux_options {
-
-host_name = "${var.k8s_node_name}${count.index + 1}"
-
-domain = "${var.virtual_machine_domain}"
-
-time_zone = "${var.vsphere_time_zone}"
-
-}
-
-  
-
-network_interface {
-
-ipv4_address = "${var.vsphere_ipv4_address}${31 + count.index}"
-
-ipv4_netmask = "${var.vsphere_ipv4_netmask}"
-
-}
-
-  
-
-ipv4_gateway = "${var.vsphere_ipv4_gateway}"
-
-dns_suffix_list = "${var.virtual_machine_search_domain}"
-
-dns_server_list = "${var.vsphere_dns_servers}"
-
-}
-
-}
-
-}
-
-  
 
 resource "vsphere_virtual_machine" "k8s-deploy" {
+  #count            = "1"
+  name             = "${var.k8s_deploy_name}"
+  resource_pool_id = "${data.vsphere_resource_pool.resource_pool.id}"
+  datastore_id     = "${data.vsphere_datastore.datastore.id}"
+  #host_system_id = "${data.vsphere_host.hosts.*.id[count.index]}"
+  folder = "${vsphere_folder.vm_folder.path}"
 
-#count = "1"
+  num_cpus = "${var.k8s_deploy_cpu}"
+  memory   = "${var.k8s_deploy_memory}"
+  guest_id = "${data.vsphere_virtual_machine.template.guest_id}"
+  #enable_disk_uuid = "true"
 
-name = "${var.k8s_deploy_name}"
+  network_interface {
+    network_id   = "${data.vsphere_network.network.id}"
+  }
 
-resource_pool_id = "${data.vsphere_resource_pool.resource_pool.id}"
+  disk {
+    label = "disk0" 
+    size = "${data.vsphere_virtual_machine.template.disks.0.size}"
+  }
 
-datastore_id = "${data.vsphere_datastore.datastore.id}"
+  clone {
+    template_uuid = "${data.vsphere_virtual_machine.template.id}"
 
-#host_system_id = "${data.vsphere_host.hosts.*.id[count.index]}"
+    customize {
+      linux_options {
+        host_name = "${var.k8s_deploy_name}"
+        domain    = "${var.virtual_machine_domain}"
+        time_zone = "${var.vsphere_time_zone}"
+      }
 
-folder = "${vsphere_folder.vm_folder.path}"
+      network_interface {
+        ipv4_address = "${var.vsphere_ipv4_address}9"
+        ipv4_netmask = "${var.vsphere_ipv4_netmask}"
+      }
 
-  
-
-num_cpus = "${var.k8s_deploy_cpu}"
-
-memory = "${var.k8s_deploy_memory}"
-
-guest_id = "${data.vsphere_virtual_machine.template.guest_id}"
-
-#enable_disk_uuid = "true"
-
-  
-  
-
-network_interface {
-
-network_id = "${data.vsphere_network.network.id}"
-
-}
-
-  
-
-disk {
-
-label = "disk0"
-
-size = "${data.vsphere_virtual_machine.template.disks.0.size}"
-
-}
-
-  
-
-clone {
-
-template_uuid = "${data.vsphere_virtual_machine.template.id}"
-
-  
-
-customize {
-
-linux_options {
-
-host_name = "${var.k8s_deploy_name}"
-
-domain = "${var.virtual_machine_domain}"
-
-time_zone = "${var.vsphere_time_zone}"
-
-}
-
-  
-
-network_interface {
-
-ipv4_address = "${var.vsphere_ipv4_address}9"
-
-ipv4_netmask = "${var.vsphere_ipv4_netmask}"
-
-}
-
-  
-
-ipv4_gateway = "${var.vsphere_ipv4_gateway}"
-
-dns_suffix_list = "${var.virtual_machine_search_domain}"
-
-dns_server_list = "${var.vsphere_dns_servers}"
-
-}
-
-}
-
+      ipv4_gateway    = "${var.vsphere_ipv4_gateway}"
+      dns_suffix_list = "${var.virtual_machine_search_domain}"
+      dns_server_list = "${var.vsphere_dns_servers}"
+    }
+  }
 }
 
 ```
@@ -1002,7 +834,7 @@ root@terraform:~/terraform/prod-k8sz1-tf#
 
 `terraform show`能够看到创建的所有资源的详细信息
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk2MjEzMzk5LDEwNzE3NTE3MTUsMjAwMT
+eyJoaXN0b3J5IjpbMjY1MTQ2ODI1LDEwNzE3NTE3MTUsMjAwMT
 g2OTcwMCw4NTgwNDc3MiwtMTY1ODEzMjg1NiwyMDUxMjY0Njk0
 LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
 -->
