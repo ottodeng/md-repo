@@ -2,7 +2,7 @@
 # Deploy Kubernetes VMs with Terraform
  
 
-具体环境如下：
+**具体环境如下：**
 
 | ESXi HOST | IP | Remark |
 | -- | -- |--|
@@ -584,7 +584,7 @@ root@terraform:~/terraform#
 
 `terraform show`能够看到创建的所有资源的详细信息
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI3NTIxNTMyLDEwNzE3NTE3MTUsMjAwMT
-g2OTcwMCw4NTgwNDc3MiwtMTY1ODEzMjg1NiwyMDUxMjY0Njk0
-LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
+eyJoaXN0b3J5IjpbMzIxMzMzMDUyLDIyNzUyMTUzMiwxMDcxNz
+UxNzE1LDIwMDE4Njk3MDAsODU4MDQ3NzIsLTE2NTgxMzI4NTYs
+MjA1MTI2NDY5NCwtMTg2ODc1MDY5NywtOTc0MTYzODU4XX0=
 -->
