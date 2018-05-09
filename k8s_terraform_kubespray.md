@@ -10,11 +10,6 @@
 | esxi-host04 | 10.0.0.14 | #ESXi host04 |
 | esxi-host05 | 10.0.0.15 | #ESXi host05 |
 | vCenter | 10.0.0.10 | #vCenter |
-
-  `here` 
-
-| k8s HOST | IP | Remark | 
-|--|--|--|
 | k8s-deploy | 10.0.0.9 | #Deploy Node |
 | k8s-master01 | 10.0.0.21 | #Master Node |
 | k8s-master02 | 10.0.0.22 | #Master Node |
@@ -44,12 +39,11 @@ The infrastructure Terraform can manage includes low-level components such as co
 
 ### 1.1 Install GO 1.10
 
-wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz 
-
-export PATH=/usr/local/go/bin:$PATH
-export GOPATH=/root/go
-export GOROOT=/usr/local/go
+> wget https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz tar -C
+> /usr/local -xzf go1.10.1.linux-amd64.tar.gz 
+> 
+> export PATH=/usr/local/go/bin:$PATH export GOPATH=/root/go export
+> GOROOT=/usr/local/go
 
 ### 1.2 Install Terraform 0.11.7
 wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
@@ -58,6 +52,6 @@ cp terraform /usr/local/bin/
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTQwNjQ5NSwtMTY1ODEzMjg1NiwyMD
+eyJoaXN0b3J5IjpbMjAxOTAzNjQ5OCwtMTY1ODEzMjg1NiwyMD
 UxMjY0Njk0LC0xODY4NzUwNjk3LC05NzQxNjM4NThdfQ==
 -->
